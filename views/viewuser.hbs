@@ -1,0 +1,34 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">Specific user data</li>
+    </ol>
+</nav>
+
+<table>
+    {{#each rows}}
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <h1>You are currently viewing <u>{{this.firstname}} {{this.lastname}}'s</u> information</h1>
+            <div class="row">
+                <h4>First name: {{this.firstname}}</h4>
+            </div>
+            <div class="row">
+                <h4>name: {{this.lastname}}</h4>
+            </div>
+            <div class="row">
+                <h4>Phone number: {{this.phonenumber}}</h4>
+            </div>
+            <div class="row">
+                <h4>Email Address: {{this.email}}</h4>
+            </div>
+            <div class="row">
+                <h4>About User: {{this.comments}}</h4>
+            </div>
+            <div class="row">
+                <h4>User State: {{this.state}}</h4>
+            </div>
+            <br /><br />
+            <a href="/" class="bi bi-eye"> <label>View All</label></a>
+        </div>
+    {{/each}}
+</table>

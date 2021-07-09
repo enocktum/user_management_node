@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-6">
+        <h1>Users</h1>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <a href="/adduser" type="button" class="btn btn-primary align-self-center">+ add user</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead style="background-color:rgba(0, 0, 0, 0.479);color:white;">
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phonenumber</th>
+            <th scope="col" class="d-flex justify-content-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each rows}}
+            <tr>
+                <td scope="row">{{this.firstname}}</td>
+                <td scope="row">{{this.lastname}}</td>
+                <td scope="row">{{this.email}}</td>
+                <td scope="row">{{this.phonenumber}}</td>
+                <td scope="row" class="d-flex justify-content-center">
+                    <form action="viewuser" method="POST">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <button type="submit" class="btn btn-light btn-small btn-outline-dark"><i
+                                class="bi bi-eye"></i>View</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;
+                    <form action="edituser" method="POST">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <button type="submit" class="btn btn-light btn-small btn-outline-dark"><i
+                                class="bi bi-pencil btn-primary"></i>Edit</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;
+                    <form action="deleteuser" method="POST">
+                        <input type="hidden" name="id" value="{{this.id}}" />
+                        <button type="submit" class="btn btn-light btn-small btn-outline-dark"><i
+                                class="bi bi-pencil btn-danger"></i>Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+
+    </tbody>
+</table>

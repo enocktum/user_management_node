@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">Edit User</li>
+    </ol>
+</nav>
+
+{{#if updatefields}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{updatefields}} <a href="/">View Users</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <form class="row g-3 needs-validation" method="POST" action="/editusersuccess" novalidate>
+
+        {{#if userid}}
+            <input type="hidden" class="form-control" id="id" name="id" value="{{userid}}" placeholder="{{userid}}">
+        {{/if}}
+
+        {{#rows}}
+
+            {{> userform}}
+        {{/rows}}
+
+    </form>
+{{/if}}
